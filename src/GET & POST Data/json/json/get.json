@@ -1,0 +1,20 @@
+{
+    "args": {
+        "mark": "samsung",
+        "page": [
+            "1",
+            "2",
+            "3"
+        ],
+        "q": "sajad"
+    },
+    "headers": {
+        "accept": "*/*",
+        "accept-encoding": "gzip, br",
+        "connection": "close",
+        "host": "httpcan.org",
+        "user-agent": "python-requests/2.34.2"
+    },
+    "origin": "83.121.108.136",
+    "url": "http://httpcan.org/get?q=sajad&mark=samsung&page=1&page=2&page=3"
+}

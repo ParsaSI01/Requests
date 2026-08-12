@@ -1,0 +1,21 @@
+{
+    "args": {},
+    "data": "",
+    "files": {},
+    "form": {
+        "password": "1234",
+        "username": "sajad"
+    },
+    "headers": {
+        "accept": "*/*",
+        "accept-encoding": "gzip, br",
+        "connection": "close",
+        "content-length": "28",
+        "content-type": "application/x-www-form-urlencoded",
+        "host": "httpcan.org",
+        "user-agent": "python-requests/2.34.2"
+    },
+    "json": null,
+    "origin": "83.121.108.136",
+    "url": "http://httpcan.org/post"
+}
