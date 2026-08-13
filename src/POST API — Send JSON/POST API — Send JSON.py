@@ -1,24 +1,29 @@
 import requests
+from database import Database
 
-import json
+url = 'https://api.divar.ir/v8/web-search/4/cars'
 
-with open("json/parametrs.json", "r", encoding="utf-8") as file:
-    parametrs = json.load(file)
+header = {'Content-Type': 'application/json'}
 
-with open("json/data.json", "r", encoding="utf-8") as file:
-    data = json.load(file)
+data = {'page': 1, 'json_schema': {'category': {'value': "cars"}}, 'last-post-date': 1716185835776001}
 
-url = "https://api.divar.ir/v8/web-search/4/cars"
-response = requests.post(url=url, params=parametrs, data=data)
+response = requests.post(url, headers=header, json=data)
 
-with open("json/response.json", "w", encoding="utf-8") as file:
-    json.dump(response.json(), file, indent=4)
+next_last_post_date = response.json()['last_post_date']
+widgets = response.json()['web_widgets']['post_list']
 
-with open("json/response.json", "r", encoding="utf-8") as file:
-    widgets = json.load(file)
 
-widgets = widgets["widget_list"][0]["data"]
+divar_db=Database('divar.db')
 
 for item in widgets:
-    title = item
-    print(title)
+    car_detail_data = item['data']
+    title = car_detail_data['title']
+    kilometter = car_detail_data['top_description_text']
+    price = car_detail_data['middle_description_text']
+    location = car_detail_data['bottom_description_text']
+    detail_url=f'https://divar.ir/v/{title}/{car_detail_data['token']}'
+    divar_db.insert_into_db(title,kilometter,price,location,detail_url)
+
+
+
+
