@@ -1,0 +1,13 @@
+{
+    "model": "gpt-3.5-turbo-instruct",
+    "messages": [
+        {
+            "role": "real sajad",
+            "content": "سلام! امروز چطورید؟"
+        }
+    ],
+    "max_tokens": "150",
+    "n": 1,
+    "stop": null,
+    "temperature": 0.7
+}
